@@ -1,0 +1,26 @@
+s0.initVideo("hands_by_flipaClip_in_youtube.mp4")
+
+const R = [1, 2, 0].smooth()
+const G = [2, 1, 1].smooth()
+const B = [0, 0, 2].smooth()
+
+noise().color(R, G, B, 0.1).out()
+
+noise(1, 0.5)
+	.color([2, 1, 0].smooth(), [1, 2, 0].smooth(), [0, 1, 2].smooth(), 0.2)
+	.brightness(1)
+	.kaleid([2, 4, 6, 8, 10].smooth)
+	//.repeat(2, 2)
+	//.modulate(src(s0).scrollX(0.045), 0.1)
+	.diff(src(s0).scrollX(0.045), 0.1)
+	.out()
+
+noise(2, 1.5)
+	.color(R, G, B)
+	.kaleid()
+	.add(noise()
+		.kaleid()
+		//.brightness(0.1)
+		.scale(2), 0.4)
+	.rotate(0, 0.3)
+	.out()
