@@ -1,0 +1,23 @@
+voronoi(100, 3)
+	.posterize(10, 15)
+  	.out()
+
+voronoi(150, 1)
+	.posterize(9, 15)
+	//.rotate(0, 0.2)
+	.scrollX(()=> time/10)
+    //.scrollX(() => Math.random() < 0.5 ? -1 * time/10 : 1 * time/10)
+	.add(osc(20, 0.2, 1).scale(-2).kaleid(5).rotate(0, 0.2), 0.5)
+	//.add(osc(20, 0.2, 1).posterize(10, 2).pixelate(1).scale(-2).kaleid(10).rotate(0, 0.2), 0.5)
+  	.out()
+
+const R = [1, 2, 0].smooth()
+const G = [2, 1, 1].smooth()
+const B = [0, 1, 2].smooth()
+
+voronoi(140, 1)
+	.scrollY(() => -time / 10)
+	.posterize(10, 15)
+	.color(R, G, B)
+	.add(osc(20, 0.2, 1).scale(-2).kaleid(5).rotate(0, 0.2), 0.5)
+	.out()
